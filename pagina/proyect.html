@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Para Karina</title>
+  <style>
+    /* Estilos generales */
+    body {
+      background-color: #000000;
+      font-family: Arial, sans-serif;
+      overflow: hidden;
+      height: 100vh;
+      margin: 0;
+    }
+    
+    /* Estilos para los corazones */
+    .corazon {
+      position: absolute;
+      font-size: 80px;
+      opacity: 0;
+      animation: caida 15s infinite;
+      transform-origin: center;
+    }
+
+    .texto {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-75%, -50%);
+    font-family: Pacifico;
+    font-size: 100px;
+    font-weight: bold;
+    color: #ff69d2;
+    font-family: 'Dancing Script', cursive;
+    text-shadow: 
+      0 0 10px rgba(255, 105, 180, 0.5), 
+      0 0 20px rgba(255, 105, 180, 0.3), 
+      0 0 30px rgba(255, 105, 180, 0.1), 
+      0 2px 4px rgba(0, 0, 0, 0.2), 
+      0 -2px 4px rgba(255, 255, 255, 0.2);
+    -webkit-text-stroke: 3px #36103d;
+    z-index: 1;
+    }
+    
+    /* Estilos para la imagen */
+    .imagen-central {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(28%, -50%);
+      width: 640x;
+      height: 480px;
+      object-fit: cover;
+    }
+    
+    /* Animación de caída */
+    @keyframes caida {
+      0% {
+        top: -100px;
+        transform: rotate(0deg);
+        opacity: 1;
+      }
+      10% {
+        transform: rotate(10deg);
+        opacity: 0.5;
+      }
+      20% {
+        transform: rotate(20deg);
+        opacity: 0.1;
+      }
+      30% {
+        transform: rotate(10deg);
+        opacity: 1;
+      }
+      40% {
+        transform: rotate(0deg);
+        opacity: 0.5;
+      }
+      50% {
+        transform: rotate(-10deg);
+        opacity: 0.1;
+      }
+      60% {
+        transform: rotate(-20deg);
+        opacity: 0.5;
+      }
+      70% {
+        transform: rotate(-10deg);
+        opacity: 1;
+      }
+      80% {
+        transform: rotate(0deg);
+        opacity: 0.8;
+      }
+      90% {
+        top: 90vh;
+        transform: rotate(10deg);
+        opacity: 0.5;
+      }
+      100% {
+        top: 100vh;
+        opacity: 0;
+      }
+    }
+
+    /* Animación de fade */
+    @keyframes heartfade {
+      0% {
+        opacity: 0.8;
+      }
+      10% {
+        opacity: 1;
+      }
+      20% {
+        opacity: 0.9;
+      }
+      30% {
+        opacity: 0.5;
+      }
+      40% {
+        opacity: 0.1;
+      }
+      50% {
+        opacity: 0.2;
+      }
+      60% {
+        opacity: 0.5;
+      }
+      70% {
+        opacity: 0.8;
+      }
+      80% {
+        opacity: 1;
+      }
+      90% {
+        opacity: 0.5;
+      }
+      100% {
+        opacity: 0.1;
+      }
+    }
+
+  </style>
+  
+  <div class="texto">Te amo mucho Karina ❤️</div>
+
+</head>
+<body>
+  <!-- Corazones cayendo -->
+  <script>
+    for (var i = 1; i < 150; i++) {
+      var corazon = document.createElement('div');
+      corazon.className = 'corazon';
+      corazon.innerHTML = '&hearts;';
+      
+      // Asignar un color aleatorio de degradado entre morado, rojo y rosado
+      var hue = Math.random() * 30 + 330; // entre 330 y 360 grados (morado a rosado)
+      var saturation = Math.random() * 50 + 50; // entre 50 y 100% de saturación
+      var lightness = Math.random() * 50 + 50; // entre 50 y 100% de luminosidad
+      corazon.style.color = `hsl(${hue}, ${saturation}%, ${lightness}%)`;
+      
+      // Asignar una posición aleatoria en el eje x, pero dentro de la pantalla
+  var left = Math.random() * (window.innerWidth - 50) + 25;
+  
+  // Asignar una posición aleatoria en el eje y, pero con un offset para que no todos empiecen a caer del mismo lado
+  var top = -Math.random() * 200;
+  
+  corazon.style.left = left + 'px';
+  corazon.style.top = top + 'px';
+  corazon.style.animationDelay = Math.random() * 8 + 's';
+  corazon.style.animationTimingFunction = 'ease-in-out';
+  document.body.appendChild(corazon);
+}
+  </script>
+  
+  <!-- Imagen central -->
+  <img src="amor.png" alt="Imagen central" class="imagen-central">
+</body>
+</html>
